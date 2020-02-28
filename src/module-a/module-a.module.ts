@@ -1,10 +1,10 @@
 import { forwardRef, Module } from '@nestjs/common';
-import { ModuleBModule } from '../module-b/module-b.module';
+import { ModuleCModule } from '../module-c/module-c.module';
 import { ServiceAService } from './service-a/service-a.service';
 
 @Module({
   imports: [
-      forwardRef(() => ModuleBModule),
+      forwardRef(() => ModuleCModule),
   ],
   providers: [ServiceAService],
   exports: [ServiceAService]

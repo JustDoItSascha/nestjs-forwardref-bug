@@ -1,6 +1,6 @@
 import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { connect } from 'amqplib/callback_api';
-import { ServiceBService } from '../../module-b/service-b/service-b.service';
+import { ServiceCService } from '../../module-c/service-c/service-c.service';
 
 @Injectable()
 export class ServiceAService {
@@ -8,8 +8,8 @@ export class ServiceAService {
 
     constructor(
         // It will work, if you uncomment the following lines
-        @Inject(forwardRef(() => ServiceBService))
-        private serviceB: ServiceBService,
+        @Inject(forwardRef(() => ServiceCService))
+        private serviceC: ServiceCService,
     ) {
         // Start RabbitMQ Server with docker and change the port here
         connect('amqp://localhost:32770', () => this.name = 'A2');
